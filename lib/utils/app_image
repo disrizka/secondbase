@@ -1,0 +1,13 @@
+class AppImage {
+  static const String getScreen = 'assets/get_screen.png';
+  static const String getScreen2 = 'assets/getscreen.png';
+  static const String intro1 = 'assets/introgambar1.png';
+  static const String intro2 = 'assets/holy-quran.png';
+  static const String intro3 = 'assets/girl.png';
+  static const String intro4 = 'assets/quran.png';
+  static const String quranlogo = 'assets/alquranulkarim.png';
+  static const String googlelogo = 'assets/google.jpeg';
+  static const String tasbih = 'assets/beads.png';
+  static const String earphone = 'assets/listening.png';
+  static const String notepad = 'assets/notepad.png';
+}
