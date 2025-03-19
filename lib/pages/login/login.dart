@@ -13,6 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isObsecure = true;
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -188,27 +189,39 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Widget _buildGoogleLoginButton() {
-    return OutlinedButton(
-      onPressed: () {},
-      style: OutlinedButton.styleFrom(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        padding: EdgeInsets.symmetric(vertical: 16),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset("assets/google.jpeg", height: 16),
-          SizedBox(width: 8),
-          Text(
-            "Login with Google",
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.black87,
-              fontFamily: "Poppins",
+    return isLoading
+        ? CircularProgressIndicator()
+        : ElevatedButton(
+          onPressed: () async {
+            setState(() {
+              isLoading = true;
+            });
+            await AuthService().loginWithGoogle(context);
+            setState(() {
+              isLoading = false;
+            });
+          },
+          style: OutlinedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
             ),
+            padding: EdgeInsets.symmetric(vertical: 16),
           ),
-        ],
-      ),
-    );
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset("assets/google.jpeg", height: 16),
+              SizedBox(width: 8),
+              Text(
+                "Login with Google",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black87,
+                  fontFamily: "Poppins",
+                ),
+              ),
+            ],
+          ),
+        );
   }
 }

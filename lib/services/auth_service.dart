@@ -1,10 +1,39 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:secondbase/pages/home/home.dart';
 import 'package:secondbase/pages/login/login.dart';
 
 class AuthService {
+  Future<UserCredential?> loginWithGoogle(BuildContext context) async {
+    try {
+      final googleUser = await GoogleSignIn().signIn();
+
+      final googleAuth = await googleUser?.authentication;
+
+      final cred = GoogleAuthProvider.credential(
+        idToken: googleAuth?.idToken,
+        accessToken: googleAuth?.accessToken,
+      );
+
+      final userCredential = await FirebaseAuth.instance.signInWithCredential(
+        cred,
+      );
+
+      // Navigasi ke halaman home setelah login berhasil
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const Home()),
+      );
+
+      return userCredential;
+    } catch (e) {
+      print(e.toString());
+    }
+    return null;
+  }
+
   Future<void> signup({
     required String email,
     required String password,
