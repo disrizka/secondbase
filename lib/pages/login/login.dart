@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:secondbase/services/auth_service.dart';
 import 'package:secondbase/pages/signup/signup.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -11,10 +12,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  // final TextEditingController _phoneController = TextEditingController();
-
   bool _isObsecure = true;
-  bool _isActive = true;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Welcome Back",
+                "Welcome Back!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: "Poppins",
@@ -39,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: 8),
               Text(
-                "Login to access your account",
+                "Login to continue",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: "Poppins",
@@ -47,20 +45,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(height: 24),
+              SizedBox(height: 16),
               _buildTextField(
                 "Email Address",
                 _emailController,
                 "Enter Email",
                 false,
               ),
-              // SizedBox(height: 16),
-              // _buildTextField(
-              //   "Phone Number",
-              //   _phoneController,
-              //   "Enter Phone Number",
-              //   false,
-              // ),
               SizedBox(height: 16),
               _buildTextField(
                 "Password",
@@ -68,24 +59,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 "Enter Password",
                 true,
               ),
-              SizedBox(height: 12),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "Forgot Password?",
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 12,
-                    fontFamily: "Poppins",
-                  ),
-                ),
-              ),
               SizedBox(height: 24),
               _buildLoginButton(),
               SizedBox(height: 16),
               Center(
                 child: Text(
-                  "Or sign in with",
+                  "Or login with",
                   style: TextStyle(
                     fontFamily: "Poppins",
                     fontSize: 12,
@@ -182,14 +161,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildLoginButton() {
     return ElevatedButton(
-      onPressed:
-          _isActive
-              ? () {
-                // Navigator.of(context).pushReplacement(
-                //   MaterialPageRoute(builder: (context) => SignUpScreen()),
-                // );
-              }
-              : null,
+      onPressed: () async {
+        await AuthService().signin(
+          email: _emailController.text,
+          password: _passwordController.text,
+          context: context,
+        );
+      },
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.pinkAccent,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -211,11 +189,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildGoogleLoginButton() {
     return OutlinedButton(
-      onPressed: () {
-        // Navigator.of(
-        //   context,
-        // ).pushReplacement(MaterialPageRoute(builder: (context) => Getscreen()));
-      },
+      onPressed: () {},
       style: OutlinedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         padding: EdgeInsets.symmetric(vertical: 16),
@@ -226,7 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Image.asset("assets/google.jpeg", height: 16),
           SizedBox(width: 8),
           Text(
-            "Sign in with Google",
+            "Login with Google",
             style: TextStyle(
               fontSize: 14,
               color: Colors.black87,

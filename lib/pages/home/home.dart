@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:secondbase/services/auth_service.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -38,9 +39,8 @@ class Home extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 30),
-
-                // Logout Button
-                // _logout(context),
+                const SizedBox(height: 30),
+                _logout(context),
               ],
             ),
           ),
@@ -49,20 +49,25 @@ class Home extends StatelessWidget {
     );
   }
 
-  // Widget _logout(BuildContext context) {
-  //   return ElevatedButton(
-  //     style: ElevatedButton.styleFrom(
-  //       backgroundColor: const Color(0xff0D6EFD),
-  //       shape: RoundedRectangleBorder(
-  //         borderRadius: BorderRadius.circular(14),
-  //       ),
-  //       minimumSize: const Size(double.infinity, 60),
-  //       elevation: 0,
-  //     ),
-  //     onPressed: () async {
-  //       await AuthService().signout(context: context);
-  //     },
-  //     child: const Text("Sign Out"),
-  //   );
-  // }
+  Widget _logout(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xff0D6EFD),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+        minimumSize: const Size(double.infinity, 60),
+        elevation: 0,
+      ),
+      onPressed: () async {
+        await AuthService().signout(context: context);
+      },
+      child: const Text(
+        "Sign Out",
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
 }
