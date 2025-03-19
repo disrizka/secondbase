@@ -26,7 +26,7 @@ class AuthService {
         message = 'The password provided is too weak.';
       } else if (e.code == 'email-already-in-use') {
         message = 'An account already exists with that email.';
-      }
+      };
       Fluttertoast.showToast(
         msg: message,
         toastLength: Toast.LENGTH_LONG,
