@@ -6,6 +6,14 @@ import 'package:secondbase/pages/home/home.dart';
 import 'package:secondbase/pages/login/login.dart';
 
 class AuthService {
+  Future<void> sendEmailVerificationLink() async {
+    try {
+      await FirebaseAuth.instance.currentUser?.sendEmailVerification();
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
   Future<UserCredential?> loginWithGoogle(BuildContext context) async {
     try {
       final googleUser = await GoogleSignIn().signIn();

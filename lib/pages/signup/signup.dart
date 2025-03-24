@@ -200,8 +200,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
-            fontFamily: "Poppins",
+            color: Colors.white.withOpacity(0.5),
+            fontFamily: "Poppins"
           ),
         ),
       ),
