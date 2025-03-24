@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:secondbase/pages/login/login.dart';
 import 'package:secondbase/services/auth_service.dart';
+import 'package:secondbase/utils/app_color.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -12,8 +13,6 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  // final TextEditingController _phoneController = TextEditingController();
-  // final TextEditingController _nameController = TextEditingController();
 
   bool _isObsecure = true;
   bool _isActive = true;
@@ -21,115 +20,116 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF2F9FF),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                "Create Account",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87,
-                ),
-              ),
-              SizedBox(height: 8),
-              Text(
-                "Sign up to get started",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: 14,
-                  color: Colors.grey,
-                ),
-              ),
-              // SizedBox(height: 24),
-              // _buildTextField(
-              //   "Full Name",
-              //   _nameController,
-              //   "Enter Full Name",
-              //   false,
-              // ),
-              SizedBox(height: 16),
-              _buildTextField(
-                "Email Address",
-                _emailController,
-                "Enter Email",
-                false,
-              ),
-              // SizedBox(height: 16),
-              // _buildTextField(
-              //   "Phone Number",
-              //   _phoneController,
-              //   "Enter Phone Number",
-              //   false,
-              // ),
-              SizedBox(height: 16),
-              _buildTextField(
-                "Password",
-                _passwordController,
-                "Enter Password",
-                true,
-              ),
-              SizedBox(height: 24),
-              _buildSignUpButton(),
-              SizedBox(height: 16),
-              Center(
-                child: Text(
-                  "Or sign up with",
-                  style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontSize: 12,
-                    color: Colors.grey,
-                  ),
-                ),
-              ),
-              SizedBox(height: 16),
-              _buildGoogleSignUpButton(),
-              SizedBox(height: 24),
-              Center(
-                child: RichText(
-                  text: TextSpan(
-                    text: "Already have an account? ",
-                    style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 12,
-                      color: Colors.grey,
+      backgroundColor: AppColor.primaryColor,
+      body: Stack(
+        children: [
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Image.asset(
+              "assets/flower.png", // Gambar bunga
+              fit: BoxFit.cover,
+            ),
+          ),
+          Center(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Create Account",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: "Baloo2",
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: AppColor.secondaryColor,
+                      ),
                     ),
-                    children: [
-                      WidgetSpan(
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginScreen(),
-                              ),
-                            );
-                          },
-                          child: Text(
-                            "Login",
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "Poppins",
-                            ),
-                          ),
+                    SizedBox(height: 8),
+                    Text(
+                      "Sign up to get started",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 14,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    _buildTextField(
+                      "Email Address",
+                      _emailController,
+                      "Enter Email",
+                      false,
+                    ),
+                    SizedBox(height: 16),
+                    _buildTextField(
+                      "Password",
+                      _passwordController,
+                      "Enter Password",
+                      true,
+                    ),
+                    SizedBox(height: 24),
+                    _buildSignUpButton(),
+                    SizedBox(height: 16),
+                    Center(
+                      child: Text(
+                        "Or sign up with",
+                        style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontSize: 12,
+                          color: Colors.grey,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(height: 16),
+                    _buildGoogleSignUpButton(),
+                    SizedBox(height: 24),
+                    Center(
+                      child: RichText(
+                        text: TextSpan(
+                          text: "Already have an account? ",
+                          style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 12,
+                            color: Colors.grey,
+                          ),
+                          children: [
+                            WidgetSpan(
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => LoginScreen(),
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  "Login",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "Poppins",
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -190,7 +190,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               }
               : null,
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.pinkAccent,
+        backgroundColor: AppColor.secondaryColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         padding: EdgeInsets.symmetric(vertical: 16),
       ),
@@ -200,8 +200,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: Colors.white.withOpacity(0.5),
-            fontFamily: "Poppins"
+            color: Colors.white,
+            fontFamily: "Poppins",
           ),
         ),
       ),

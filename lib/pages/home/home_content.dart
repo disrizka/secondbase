@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:secondbase/api/album/fetch.dart';
+import 'package:secondbase/pages/home/quran_tracker_content.dart';
 
 import 'package:secondbase/utils/app_color.dart';
 import 'package:secondbase/utils/app_image';
@@ -86,7 +87,18 @@ class HomeContent extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _buildCard(AppImage.notes, 'Quran Tracker'),
+                    _buildCard(
+                      AppImage.notes,
+                      'Quran Tracker',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => QuranTracker(),
+                          ),
+                        );
+                      },
+                    ),
                     const SizedBox(width: 40),
                     _buildCard(AppImage.tasbih, 'Dzikir'),
                   ],

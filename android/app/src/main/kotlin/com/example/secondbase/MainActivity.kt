@@ -1,4 +1,4 @@
-package com.example.secondbase
+package com.ppkd.secondbase
 
 import io.flutter.embedding.android.FlutterActivity
 

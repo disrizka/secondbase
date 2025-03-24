@@ -10,4 +10,5 @@ class AppImage {
   static const String tasbih= 'assets/tasbih.png';
   static const String audio= 'assets/listening.png';
   static const String notes= 'assets/notes.png';
+  static const String flower= 'assets/flower.png';
 }
