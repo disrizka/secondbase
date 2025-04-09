@@ -1,0 +1,15 @@
+class AppImage {
+  static const String googlelogo = 'assets/images/google.jpeg';
+  static const String splash= 'assets/images/splashScreen.png';
+  static const String getStarted= 'assets/images/getStarted.png';
+  static const String intro1= 'assets/images/intro1.png';
+  static const String intro2= 'assets/images/intro2.png';
+  static const String intro3= 'assets/images/intro3.png';
+  static const String homeGirl= 'assets/images/homeGirl.png';
+  static const String quran= 'assets/images/quran.png';
+  static const String tasbih= 'assets/images/tasbih.png';
+  static const String audio= 'assets/images/listening.png';
+  static const String notes= 'assets/images/notes.png';
+  static const String flower= 'assets/images/flower.png';
+  static const String logo= 'assets/images/logo.png';
+}

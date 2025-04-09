@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:secondbase/services/auth_service.dart';
-import 'package:secondbase/utils/app_color.dart';
+import 'package:secondbase/utils/constant/app_color.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});

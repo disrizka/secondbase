@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:secondbase/api/album/ayat_view.dart';
 import 'package:secondbase/api/album/model/album_api.dart';
-import 'package:secondbase/utils/app_color.dart';
+import 'package:secondbase/utils/constant/app_color.dart';
+import 'package:secondbase/utils/constant/app_image';
 
 import '../repo.dart';
 
@@ -32,9 +33,9 @@ class _FetchAlbumState extends State<FetchAlbum> {
             title: Text(
               'Quraisyah',
               style: TextStyle(
-                fontFamily: "Poppins",
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+                fontFamily: "Baloo2",
+                fontSize: 25,
+                fontWeight: FontWeight.w900,
                 color: AppColor.secondaryColor,
               ),
             ),
@@ -91,7 +92,7 @@ class _FetchAlbumState extends State<FetchAlbum> {
                   ),
                   Positioned(
                     right: 20,
-                    child: Image.asset('assets/quran.png', width: 120),
+                    child: Image.asset(AppImage.intro2, width: 120),
                   ),
                 ],
               ),

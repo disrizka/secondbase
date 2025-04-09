@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:secondbase/pages/introduction_screen.dart';
-import 'package:secondbase/utils/app_color.dart';
-import 'package:secondbase/utils/app_image';
+import 'package:secondbase/utils/constant/app_color.dart';
+import 'package:secondbase/utils/constant/app_image';
 
 class Getscreen extends StatefulWidget {
   const Getscreen({super.key});

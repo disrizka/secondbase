@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:secondbase/utils/app_color.dart';
+import 'package:secondbase/utils/constant/app_color.dart';
 
 class AyatView extends StatelessWidget {
   final int nomor;

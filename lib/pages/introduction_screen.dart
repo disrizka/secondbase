@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:secondbase/pages/login/login.dart';
-import 'package:secondbase/utils/app_color.dart';
-import 'package:secondbase/utils/app_image';
+import 'package:secondbase/utils/constant/app_color.dart';
+import 'package:secondbase/utils/constant/app_image';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});

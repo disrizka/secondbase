@@ -1,10 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:secondbase/firebase_options.dart';
+import 'package:secondbase/pages/auth/screens/splash_screen.dart';
 import 'package:secondbase/pages/get_screen.dart';
 
+// import 'package:secondbase/pages/login/login.dart';
 
 void main() async {
+  var debugDisableImplicitAnimations = true;
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Getscreen(),
+      home: SplashScreen(),
     );
   }
 }

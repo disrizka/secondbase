@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:secondbase/pages/home/home_content.dart';
 import 'package:secondbase/pages/home/settings_page.dart';
-import 'package:secondbase/utils/app_color.dart';
+import 'package:secondbase/utils/constant/app_color.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -34,33 +34,33 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.primaryColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(
-          'Quraisyah',
-          style: TextStyle(
-            fontFamily: "Poppins",
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: AppColor.secondaryColor,
-          ),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-          icon: Icon(Icons.menu, color: AppColor.secondaryColor),
-          iconSize: 24.0,
-          onPressed: () {},
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search, color: AppColor.secondaryColor),
-            iconSize: 30.0,
-            onPressed: () {},
-          ),
-        ],
-      ),
 
+      // appBar: AppBar(
+      //   backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      //   title: Text(
+      //     'Quraisyah',
+      //     style: TextStyle(
+      //       fontFamily: "Poppins",
+      //       fontSize: 20,
+      //       fontWeight: FontWeight.bold,
+      //       color: AppColor.secondaryColor,
+      //     ),
+      //   ),
+      //   centerTitle: true,
+      //   leading: IconButton(
+      //     icon: Icon(Icons.menu, color: AppColor.secondaryColor),
+      //     iconSize: 24.0,
+      //     onPressed: () {},
+      //   ),
+      //   actions: [
+      //     IconButton(
+      //       icon: Icon(Icons.search, color: AppColor.secondaryColor),
+      //       iconSize: 30.0,
+      //       onPressed: () {},
+      //     ),
+      //   ],
+      // ),
       body: _widgetOptions[_selectedIndex],
 
       bottomNavigationBar: BottomNavigationBar(

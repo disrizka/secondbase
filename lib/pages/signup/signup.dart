@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:secondbase/pages/login/login.dart';
 import 'package:secondbase/services/auth_service.dart';
-import 'package:secondbase/utils/app_color.dart';
+import 'package:secondbase/utils/constant/app_color.dart';
+import 'package:secondbase/utils/constant/app_image';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -28,7 +29,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             left: 0,
             right: 0,
             child: Image.asset(
-              "assets/flower.png", // Gambar bunga
+              AppImage.flower, // Gambar bunga
               fit: BoxFit.cover,
             ),
           ),
@@ -218,7 +219,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset("assets/google.jpeg", height: 16),
+          Image.asset(AppImage.googlelogo, height: 16),
           SizedBox(width: 8),
           Text(
             "Sign up with Google",

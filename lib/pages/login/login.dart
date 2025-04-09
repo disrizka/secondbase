@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:secondbase/services/auth_service.dart';
 import 'package:secondbase/pages/signup/signup.dart';
-import 'package:secondbase/utils/app_color.dart';
+import 'package:secondbase/utils/constant/app_color.dart';
+import 'package:secondbase/utils/constant/app_image';
 
 // <-- tambahkan ini jika kamu punya AppImage
 
@@ -28,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
             bottom: 0,
             left: 0,
             right: 0,
-            child: Image.asset('assets/flower.png', fit: BoxFit.cover),
+            child: Image.asset(AppImage.flower, fit: BoxFit.cover),
           ),
 
           Center(
@@ -224,7 +225,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("assets/google.jpeg", height: 16),
+              Image.asset("assets/images/google.jpeg", height: 16),
               const SizedBox(width: 8),
               const Text(
                 "Login with Google",
